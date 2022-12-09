@@ -29,4 +29,7 @@ urlpatterns = [
     path('api/profiles/',users_api_views.ProfileList.as_view()),
     path('api/profiles/<int:seller>/',users_api_views.ProfileDetail.as_view()),
     path('api/profiles/<int:seller>/update/',users_api_views.ProfileUpdate.as_view()),
+    path('api/listings/<int:pk>/',listings_api_views.ListingDetail.as_view()),
+    path('api/listings/<int:pk>/delete/',listings_api_views.ListingDelete.as_view()),
+    path('api/listings/<int:pk>/update/',listings_api_views.ListingUpdate.as_view()),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

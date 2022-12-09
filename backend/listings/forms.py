@@ -1,15 +1,14 @@
-""" from django import forms
+from django import forms
 from .models import Listing
+from .models import Poi
 from django.contrib.gis.geos import Point
 
 
 
-class ListingsForm(forms.ModelForm):
+class PoisForm(forms.ModelForm):
     class Meta:
-        model = Listing
-        fields = ['title','description','area','borough','listing_type','property_status','price','rental_frequency',
-        'rooms','furnished','pool','elevator','cctv','parking', 'date_posted', 
-        'location','latitude','longitude','picture1','picture2','picture3','picture4','picture5']
+        model = Poi
+        fields = ['name','type','location','latitude','longitude']
     latitude = forms.FloatField()
     longitude = forms.FloatField()
 
@@ -25,4 +24,4 @@ class ListingsForm(forms.ModelForm):
         location = self.initial.get('location')
         if(isinstance(location,Point)):
             self.initial['latitude'] = location.tuple[0]
-            self.initial['longitude'] = location.tuple[1]     """
+            self.initial['longitude'] = location.tuple[1]    
