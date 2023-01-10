@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'rest_framework.authtoken',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +90,7 @@ DATABASES = {
         "NAME": 'lbrep_dp',
         'USER':'postgres',
         'PASSWORD':'TY15099587875',
-        'HOSE':'127.0.0.1',
+        'HOST':'127.0.0.1',
         'PORT':'5432',
     }
 }
