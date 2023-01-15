@@ -10,6 +10,8 @@ User = get_user_model()
 def compress(picture):
     if picture:
         pic = PIL.Image.open(picture)
+        if pic.mode in ("RGBA","P"):
+            pic = pic.convert("RGB")
         buf = BytesIO()
         pic.save(buf, 'JPEG',quality = 35)
         new_pic = File(buf,name=picture.name)
