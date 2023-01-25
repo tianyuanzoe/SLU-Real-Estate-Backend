@@ -4,12 +4,13 @@ from django.contrib.gis.geos import Point
 from django.contrib.auth import get_user_model
 from django.core.files import File
 import PIL
+from PIL import Image
 from io import BytesIO
 
 User = get_user_model()
 def compress(picture):
     if picture:
-        pic = PIL.Image.open(picture)
+        pic = Image.open(picture)
         if pic.mode in ("RGBA","P"):
             pic = pic.convert("RGB")
         buf = BytesIO()
